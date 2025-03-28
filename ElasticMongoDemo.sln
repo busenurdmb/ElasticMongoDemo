@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticMongoDemo.API", "ElasticMongoDemo.API\ElasticMongoDemo.API.csproj", "{03A3F670-7F85-435F-8024-CBF6BA73FF61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElasticMongoDemo.API", "ElasticMongoDemo.API\ElasticMongoDemo.API.csproj", "{03A3F670-7F85-435F-8024-CBF6BA73FF61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticMongoDemo.Application", "ElasticMongoDemo.Application\ElasticMongoDemo.Application.csproj", "{DC36EA5F-B493-4A2C-9A5D-474D95134BE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElasticMongoDemo.Application", "ElasticMongoDemo.Application\ElasticMongoDemo.Application.csproj", "{DC36EA5F-B493-4A2C-9A5D-474D95134BE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticMongoDemo.Domain", "ElasticMongoDemo.Domain\ElasticMongoDemo.Domain.csproj", "{876BEE7C-AA69-4138-B554-AC58A61ABB50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElasticMongoDemo.Domain", "ElasticMongoDemo.Domain\ElasticMongoDemo.Domain.csproj", "{876BEE7C-AA69-4138-B554-AC58A61ABB50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticMongoDemo.Infrastructure", "ElasticMongoDemo.Infrastructure\ElasticMongoDemo.Infrastructure.csproj", "{CC213B5A-749E-4F94-A964-7D2C33C14DEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElasticMongoDemo.Infrastructure", "ElasticMongoDemo.Infrastructure\ElasticMongoDemo.Infrastructure.csproj", "{CC213B5A-749E-4F94-A964-7D2C33C14DEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,5 +72,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E89A93B-79DB-4A51-BD35-86482D28E6AA}
 	EndGlobalSection
 EndGlobal
