@@ -57,7 +57,7 @@ Elasticsearch, metin aramasını hızlı yapmak için geleneksel veritabanların
 - Filtreleme ve grafiklerle analiz
 - Dashboard oluşturma
 
-![Kibana Screenshot](https://www.elastic.co/guide/en/kibana/current/images/kibana-dashboard.png)
+![Kibana Screenshot](https://github.com/busenurdmb/ElasticMongoDemo/blob/master/image/kibana.png)
 
 ---
 
@@ -73,11 +73,12 @@ Amaç; geleneksel veri saklama ve modern arama motorlarının avantajlarını bi
 📊 Kibana üzerinden görselleştirme desteği mevcuttur.  
 
 ---
-![Arama Örneği](https://github.com/busenurdmb/ElasticMongoDemo/blob/master/image/elasticksearchekleme.png)
-![Arama Örneği](https://github.com/busenurdmb/ElasticMongoDemo/blob/master/image/elasticksearchsearh.png)
-![Arama Örneği](https://github.com/busenurdmb/ElasticMongoDemo/blob/master/image/elastiksearput.png)
+![Arama Örneği](https://github.com/busenurdmb/ElasticMongoDemo/blob/master/image/elasticksearchekleme.jpeg)
+![Arama Örneği](https://github.com/busenurdmb/ElasticMongoDemo/blob/master/image/elasticksearchsearh.jpeg)
+![Arama Örneği](https://github.com/busenurdmb/ElasticMongoDemo/blob/master/image/elastiksearput.jpeg)
 ![Arama Örneği](https://github.com/busenurdmb/ElasticMongoDemo/blob/master/image/sahte%C3%BCr%C3%BCneklemefake.png)
-![Arama Örneği](https://github.com/busenurdmb/ElasticMongoDemo/blob/master/image/kibana.png)
+![Arama Örneği](https://github.com/busenurdmb/ElasticMongoDemo/blob/master/image/kibana1.png)
+
 ## ⚙️ Kullanılan Teknolojiler
 
 | Teknoloji | Açıklama |
