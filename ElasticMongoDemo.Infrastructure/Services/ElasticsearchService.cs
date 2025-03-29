@@ -18,8 +18,8 @@ namespace ElasticMongoDemo.Infrastructure.Services
             {
                 _elasticClient = elasticClient;
             }
-   
 
+        
         public async Task<List<Product>> SearchProductsAsync(string keyword)
         {
             var response = await _elasticClient.SearchAsync<Product>(s => s
@@ -88,7 +88,91 @@ namespace ElasticMongoDemo.Infrastructure.Services
                 );
                 return response.Documents;
             }
+
+        /// <summary>
+        /// Sadece kategoriye göre (büyük/küçük harf duyarsız) ürün araması yapar.
+        /// </summary>
+        /// <param name="category">Kategori adı</param>
+        /// <returns>Belirtilen kategoriye ait ürün listesi</returns>
+        public async Task<List<Product>> SearchByCategoryOnly1Async(string category)
+        {
+            var response = await _elasticClient.SearchAsync<Product>(s => s
+                .Query(q => q
+                    .Match(m => m
+                        .Field(f => f.CategoryId)
+                        .Query(category)
+                    )
+                )
+            );
+
+            if (!response.IsValid)
+                throw new Exception("Kategori araması başarısız: " + response.OriginalException.Message);
+
+            return response.Documents.ToList();
         }
+        /// <summary>
+        /// Sadece kategoriye göre ürün araması yapar.
+        /// </summary>
+        /// <param name="category">Kategori adı</param>
+        /// <returns>Belirtilen kategoriye ait ürün listesi</returns>
+        public async Task<List<Product>> SearchByCategoryOnlyAsync(string category)
+        {
+            var response = await _elasticClient.SearchAsync<Product>(s => s
+                .Query(q => q
+                    .Term(t => t
+                        .Field(f => f.CategoryId.Suffix("keyword")) // .keyword: exact match
+                        .Value(category)
+                    )
+                )
+            );
+
+            if (!response.IsValid)
+                throw new Exception("Kategori araması başarısız: " + response.OriginalException.Message);
+
+            return response.Documents.ToList();
+        }
+
+        /// <summary>
+        /// Ürün adında veya açıklamasında geçen kelimelere göre arama yapar.
+        /// Sadece belirtilen kategoriye ait sonuçları döner.
+        /// </summary>
+        /// <param name="keyword">Aranacak kelime</param>
+        /// <param name="category">Kategori filtresi</param>
+        /// <returns>Arama sonucunda eşleşen ürün listesi</returns>
+        public async Task<List<Product>> SearchByCategoryAsync(string keyword, string category)
+        {
+            var response = await _elasticClient.SearchAsync<Product>(s => s
+                .Query(q => q
+                    .Bool(b => b
+                        .Must(
+                            m => m.MultiMatch(mm => mm
+                                .Fields(f => f
+                                    .Field(p => p.ProductName)
+                                    .Field(p => p.ProductDescription)
+                                )
+                                .Query(keyword)
+                            ),
+                            m => m.Term(t => t
+                                .Field(p => p.CategoryId.Suffix("keyword")) // Exact match için .keyword
+                                .Value(category)
+                            )
+                        )
+                    )
+                )
+            );
+
+            if (!response.IsValid)
+                throw new Exception("Search failed: " + response.OriginalException.Message);
+
+            return response.Documents.ToList();
+        }
+        /// <summary>
+        /// ✔️ match → Kullanıcı dostu arama(Google tarzı)
+        /// ✔️ term → Veri eşitliği kontrolü(kod, ID, keyword gibi)
+        /// </summary>
+
+
     }
+}
     
 

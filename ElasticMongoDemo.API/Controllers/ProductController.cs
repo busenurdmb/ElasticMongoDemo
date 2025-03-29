@@ -66,11 +66,26 @@ namespace ElasticMongoDemo.API.Controllers
             var results = await _elasticService.SearchAsync(keyword);
             return Ok(results);
         }
-        [HttpGet("search2")]
-        public async Task<IActionResult> Search2([FromQuery] string keyword)
+        /// <summary>
+        /// Belirli bir kategoriye ait ürünleri getirir
+        /// </summary>
+        /// <param name="category">Kategori adı</param>
+        /// <returns>Kategoriye ait ürün listesi</returns>
+        [HttpGet("by-category")]
+        public async Task<IActionResult> GetProductsByCategory([FromQuery] string category)
         {
-            var results = await _elasticService.SearchProductsAsync(keyword);
-            return Ok(results);
+            if (string.IsNullOrWhiteSpace(category))
+                return BadRequest("Kategori adı zorunludur.");
+
+            try
+            {
+                var products = await _elasticService.SearchByCategoryOnlyAsync(category);
+                return Ok(products);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Bir hata oluştu: {ex.Message}");
+            }
         }
         [HttpPost("seed")]
         public async Task<IActionResult> SeedProducts()
