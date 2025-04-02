@@ -1,4 +1,4 @@
-# 🔎 .NET 8 + Elasticsearch Entegrasyonu  
+# 🔎 .NET 9 + Elasticsearch Entegrasyonu  
 ### Ürün Arama Sistemi (MongoDB + Elasticsearch)
 
 # 🔍 Elasticsearch Nedir?
@@ -83,7 +83,7 @@ Amaç; geleneksel veri saklama ve modern arama motorlarının avantajlarını bi
 
 | Teknoloji | Açıklama |
 |----------|----------|
-| 💻 **.NET 8** | Web API geliştirme çatısı |
+| 💻 **.NET 9** | Web API geliştirme çatısı |
 | 🧅 **Onion Architecture** | Katmanlı yapı: API - Application - Domain - Infrastructure |
 | 🍃 **MongoDB** | Veri saklama (NoSQL) |
 | 🔍 **Elasticsearch** | Hızlı ve güçlü arama motoru |
